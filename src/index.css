@@ -129,3 +129,19 @@
 .section-subheading {
   @apply text-lg md:text-xl text-muted-foreground mb-10 md:mb-12 max-w-3xl;
 }
+
+/* Horizontal carousel scrollbar hiding */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scrolling for carousel */
+.overflow-x-auto {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}

@@ -1,4 +1,3 @@
-
 import { type PortfolioItem } from "@/data/portfolioItems";
 import PortfolioCard from "./PortfolioCard";
 
@@ -8,10 +7,14 @@ interface PortfolioGridProps {
 
 const PortfolioGrid = ({ items }: PortfolioGridProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {items.map((item) => (
-        <PortfolioCard key={item.id} item={item} />
-      ))}
+    <div className="overflow-x-auto scrollbar-hide pb-4">
+      <div className="flex gap-4">
+        {items.map((item) => (
+          <div key={item.id} className="flex-none w-80">
+            <PortfolioCard item={item} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -15,25 +15,25 @@ const PortfolioFilters = ({ selectedCategory, onCategoryChange }: PortfolioFilte
             value="all" 
             onClick={() => onCategoryChange("all")}
           >
-            All Work
+            [All]
           </TabsTrigger>
           <TabsTrigger 
             value="tv" 
             onClick={() => onCategoryChange("tv")}
           >
-            TV
+            [TV]
           </TabsTrigger>
           <TabsTrigger 
             value="digital" 
             onClick={() => onCategoryChange("digital")}
           >
-            Digital
+            [Digital]
           </TabsTrigger>
           <TabsTrigger 
             value="music" 
             onClick={() => onCategoryChange("music")}
           >
-            Music
+            [Music]
           </TabsTrigger>
         </TabsList>
       </div>

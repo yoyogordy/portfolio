@@ -33,15 +33,16 @@ const Navbar = () => {
     >
       <div className="container-custom flex justify-between items-center">
         <a href="#" className="text-xl md:text-2xl font-heading font-bold">
-          Amit Gordon<span className="text-primary">.</span>
+          עמית גורדון<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex space-x-8 items-center">
-            <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
-            <li><a href="#portfolio" className="hover:text-primary transition-colors">Portfolio</a></li>
-            <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
+            <li><a href="#category-work" className="hover:text-primary transition-colors">[עבודות]</a></li>
+            <li><a href="#category-music-creative" className="hover:text-primary transition-colors">[מוסיקה וקריאייטיב]</a></li>
+            <li><a href="#category-english" className="hover:text-primary transition-colors">[באנגלית]</a></li>
+            <li><a href="#contact" className="hover:text-primary transition-colors">[Contact]</a></li>
           </ul>
         </nav>
 
@@ -58,26 +59,35 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className={`md:hidden bg-white absolute w-full transition-all duration-300 ${
-        mobileMenuOpen ? 'max-h-60 border-b shadow-md' : 'max-h-0 overflow-hidden'
+        mobileMenuOpen ? 'max-h-96 border-b shadow-md' : 'max-h-0 overflow-hidden'
       }`}>
         <nav className="container-custom py-4">
           <ul className="flex flex-col space-y-4">
             <li>
               <a 
-                href="#about" 
+                href="#category-work" 
                 className="block py-2 hover:text-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                About
+                [עבודות]
               </a>
             </li>
             <li>
               <a 
-                href="#portfolio" 
+                href="#category-music-creative" 
                 className="block py-2 hover:text-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Portfolio
+                [מוסיקה וקריאייטיב]
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#category-english" 
+                className="block py-2 hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                [באנגלית]
               </a>
             </li>
             <li>
@@ -86,7 +96,7 @@ const Navbar = () => {
                 className="block py-2 hover:text-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Contact
+                [Contact]
               </a>
             </li>
           </ul>
