@@ -53,8 +53,8 @@ export const portfolioItems = [
   {
     id: generateRandomId(),
     client: "במבה",
-    videoSrc: "/assets/bamba.mp4",
-    isLocal: true,
+    videoSrc: "https://drive.google.com/file/d/1Vtqo8oTXAfdfKcEMpObToKRr3Oh-24NG/preview",
+    thumbnailUrl: "/portfolio/bambathumbnail.png",
     category: 'work' as const
   },
   {
@@ -82,8 +82,7 @@ export const portfolioItems = [
   {
     id: generateRandomId(),
     client: "תדהר",
-    videoSrc: "/assets/tidhar.mp4",
-    isLocal: true,
+    videoSrc: "https://youtu.be/pi2wpWCznps?si=0v8T9C_-MG4WWkhS",
     category: 'work' as const
   },
   {
@@ -126,37 +125,36 @@ export const portfolioItems = [
 // max
 {
   id: generateRandomId(),
-  client: "מקס",
-   videoSrc: "/assets/maxCamp2.mp4",
-  isLocal: true,
+  client: "מקס (הלוואות)",
+   videoSrc: "https://youtu.be/Di8lBYerZoI?si=Tc0mXD56oYC_4GJz",
   category: 'work' as const
  },
 {
   id: generateRandomId(),
-  client: "מקס",
-   videoSrc: "/assets/maxCamp.mp4",
-  isLocal: true,
+  client: "מקס (הלוואות)",
+  videoSrc: "https://youtu.be/KrCT03eJUn8?si=Ems2Vk1ytxYueFrq",
   category: 'work' as const
  },
+
  {
   id: generateRandomId(),
-  client: "מקס",
+  client: "מקס (הלוואות)",
   videoSrc: "https://youtu.be/P1ZHKPg7t3Q?si=Dy_BpS7s77Wk2HG2",
   category: 'work' as const
  },
 // max digital
-{
+ {
   id: generateRandomId(),
   client: "מקס (מהלך משלים)",
-   videoSrc: "/assets/maxDigital.mp4",
-  isLocal: true,
+   videoSrc: "https://drive.google.com/file/d/1t7_LEDP6VDKeDZCDRwXqdrWiflCFDHcr/view",
+   thumbnailUrl: "/portfolio/maxthumbnail.png",
   category: 'work' as const
  },
  {
   id: generateRandomId(),
   client: "מקס (מהלך משלים)",
-   videoSrc: "/assets/maxDigital2.mp4",
-  isLocal: true,
+   videoSrc: "https://drive.google.com/file/d/1AoNfWgyROmFPv4b7A0hRUBXCdSKDY5Fx/view",
+   thumbnailUrl: "/portfolio/maxthumbnail2.png",
   category: 'work' as const
 },
 // teperberg
@@ -202,8 +200,7 @@ export const portfolioItems = [
 {
   id: generateRandomId(),
   client: "עוד סרטים",
-   videoSrc: "/assets/stuchim.mp4",
-  isLocal: true,
+  videoSrc: "https://youtu.be/wEM-KlVs0zc?si=ye27DUzT_lqxqrCf",
   category: 'work' as const
  },
  {
@@ -258,6 +255,7 @@ export type PortfolioItem = {
   isLocal?: boolean;
   description?: string;
   category: 'work' | 'music-creative' | 'english';
+  thumbnailUrl?: string; // Optional custom thumbnail URL
 };
 
 // Category labels in Hebrew

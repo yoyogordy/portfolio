@@ -1,147 +1,46 @@
 
-import { useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
 const ContactSection = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "[Success message title]",
-        description: "[Success message description]",
-      });
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-      setIsSubmitting(false);
-    }, 1000);
-  };
-
   return (
-    <section id="contact" className="bg-secondary/30">
+    <section id="contact" className="bg-gradient-to-b from-background to-secondary/30 py-20 md:py-32">
       <div className="container-custom">
-        <div className="animate-fade-in">
-          <h2 className="section-heading text-center">[Contact heading]</h2>
-          <p className="section-subheading text-center mx-auto">
-            [Contact section subtitle - call to action]
-          </p>
+        <div className="animate-fade-in max-w-4xl mx-auto">
+          {/* Contact Info */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <ContactItem 
+              icon={<Mail className="h-7 w-7" />} 
+              title="Email" 
+              content="yoyogordy6@gmail.com" 
+              href="mailto:yoyogordy6@gmail.com" 
+            />
+            <ContactItem 
+              icon={<Phone className="h-7 w-7" />} 
+              title="Phone" 
+              content="+972 50 333 5292" 
+              href="tel:+972503335292" 
+            />
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <Card>
-              <CardContent className="p-6 md:p-8">
-                <h3 className="text-2xl font-medium mb-6">[Form heading]</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-4">
-                    <Input 
-                      name="name" 
-                      placeholder="[Name field placeholder]" 
-                      value={formData.name} 
-                      onChange={handleChange} 
-                      required 
-                    />
-                    <Input 
-                      name="email" 
-                      type="email" 
-                      placeholder="[Email field placeholder]" 
-                      value={formData.email} 
-                      onChange={handleChange} 
-                      required 
-                    />
-                    <Input 
-                      name="subject" 
-                      placeholder="[Subject field placeholder]" 
-                      value={formData.subject} 
-                      onChange={handleChange} 
-                      required 
-                    />
-                    <Textarea 
-                      name="message" 
-                      placeholder="[Message field placeholder]" 
-                      rows={6} 
-                      value={formData.message} 
-                      onChange={handleChange} 
-                      required 
-                    />
-                  </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full" 
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? '[Sending...]' : '[Send button]'}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            <div className="flex flex-col justify-between">
-              <Card className="mb-6">
-                <CardContent className="p-6 md:p-8">
-                  <h3 className="text-2xl font-medium mb-6">[Contact info heading]</h3>
-                  <div className="space-y-6">
-                    <ContactItem 
-                      icon={<Mail className="h-6 w-6" />} 
-                      title="[Email label]" 
-                      content="example@email.com" 
-                      href="mailto:example@email.com" 
-                    />
-                    <ContactItem 
-                      icon={<Phone className="h-6 w-6" />} 
-                      title="[Phone label]" 
-                      content="[Phone number]" 
-                      href="tel:+972500000000" 
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6 md:p-8">
-                  <h3 className="text-2xl font-medium mb-6">[Social media heading]</h3>
-                  <div className="flex space-x-4">
-                    <SocialLink 
-                      href="#" 
-                      icon={<Linkedin className="h-5 w-5" />} 
-                      label="LinkedIn" 
-                    />
-                    <SocialLink 
-                      href="#" 
-                      icon={<Instagram className="h-5 w-5" />} 
-                      label="Instagram" 
-                    />
-                    <SocialLink 
-                      href="#" 
-                      icon={<Facebook className="h-5 w-5" />} 
-                      label="Facebook" 
-                    />
-                  </div>
-                </CardContent>
-              </Card>
+          {/* Social Links */}
+          <div className="text-center">
+            <h3 className="text-xl font-medium mb-6 text-muted-foreground">Connect with me</h3>
+            <div className="flex justify-center gap-4">
+              <SocialLink 
+                href="https://www.linkedin.com/in/amit-gordon1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
+                icon={<Linkedin className="h-6 w-6" />} 
+                label="LinkedIn" 
+              />
+              <SocialLink 
+                href="https://www.instagram.com/amit_gordon?igsh=dDZmamI5NngxZG00&utm_source=qr" 
+                icon={<Instagram className="h-6 w-6" />} 
+                label="Instagram" 
+              />
+              <SocialLink 
+                href="https://www.facebook.com/share/19V4ScBYr4/?mibextid=wwXIfr" 
+                icon={<Facebook className="h-6 w-6" />} 
+                label="Facebook" 
+              />
             </div>
           </div>
         </div>
@@ -162,20 +61,20 @@ const ContactItem = ({
   href: string;
 }) => {
   return (
-    <div className="flex items-start">
-      <div className="bg-primary/10 p-3 rounded-full mr-4">
-        {icon}
+    <a 
+      href={href}
+      className="group flex flex-col items-center text-center p-8 rounded-2xl bg-card hover:bg-card/80 border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+    >
+      <div className="bg-primary/10 group-hover:bg-primary/20 p-4 rounded-2xl mb-4 transition-colors">
+        <div className="text-primary">
+          {icon}
+        </div>
       </div>
-      <div>
-        <h4 className="font-medium mb-1">{title}</h4>
-        <a 
-          href={href} 
-          className="text-muted-foreground hover:text-primary hover:underline transition-colors"
-        >
-          {content}
-        </a>
-      </div>
-    </div>
+      <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wider mb-2">{title}</h4>
+      <p className="text-lg md:text-xl font-medium group-hover:text-primary transition-colors" dir="ltr">
+        {content}
+      </p>
+    </a>
   );
 };
 
@@ -192,11 +91,13 @@ const SocialLink = ({
     <a 
       href={href} 
       aria-label={label}
-      className="bg-secondary hover:bg-primary/10 p-3 rounded-full transition-colors"
+      className="group flex items-center justify-center bg-card hover:bg-primary/10 border border-border/50 hover:border-primary/30 w-14 h-14 rounded-xl transition-all duration-300 hover:shadow-md hover:-translate-y-1"
       target="_blank"
       rel="noopener noreferrer"
     >
-      {icon}
+      <div className="text-muted-foreground group-hover:text-primary transition-colors">
+        {icon}
+      </div>
     </a>
   );
 };

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { getItemsByClientInCategory, categoryLabels, type PortfolioItem } from "@/data/portfolioItems";
 import PortfolioGrid from "./portfolio/PortfolioGrid";
+import SkillsSection from "./SkillsSection";
 
 const PortfolioSection = () => {
   const categories: PortfolioItem['category'][] = ['work', 'music-creative', 'english'];
@@ -11,7 +12,7 @@ const PortfolioSection = () => {
     setActiveCategory(category);
     const element = document.getElementById(`category-${category}`);
     if (element) {
-      const offset = 100; // Offset for fixed navbar
+      const offset = 80; // Offset for sticky category nav
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: elementPosition - offset,
@@ -24,7 +25,7 @@ const PortfolioSection = () => {
     <section id="portfolio" className="py-16 bg-slate-50/50">
       <div className="w-full">
         {/* Category Navigation */}
-        <div className="sticky top-16 z-40 bg-white/95 backdrop-blur-sm border-b border-slate-200 mb-8">
+        <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-slate-200 mb-8">
           <div className="container-custom py-4">
             <nav className="flex gap-4 md:gap-8 justify-center flex-wrap">
               {categories.map((category) => (
@@ -54,6 +55,9 @@ const PortfolioSection = () => {
                     {categoryLabels[category]}
                   </h2>
                 </div>
+                
+                {/* Show Skills Section for English category */}
+                {category === 'english' && <SkillsSection />}
                 
                 {Object.entries(itemsByClient).map(([client, items]) => (
                   <div key={client} className="space-y-4">

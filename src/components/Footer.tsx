@@ -15,15 +15,10 @@ const Footer = () => {
           </div>
           
           <div className="flex flex-col md:flex-row items-center md:space-x-8">
-            <nav className="mb-4 md:mb-0">
-              <ul className="flex space-x-6 text-sm">
-                <li><a href="#portfolio" className="hover:text-primary transition-colors">[Portfolio]</a></li>
-                <li><a href="#contact" className="hover:text-primary transition-colors">[Contact]</a></li>
-              </ul>
-            </nav>
+     
             <Separator orientation="vertical" className="hidden md:block h-6 mx-2" />
             <div className="text-sm text-muted-foreground">
-              © {currentYear} עמית גורדון. [All rights reserved].
+              © {currentYear} עמית גורדון.
             </div>
           </div>
         </div>
