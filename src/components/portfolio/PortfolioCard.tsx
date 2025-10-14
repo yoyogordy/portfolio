@@ -235,13 +235,23 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
         onClick={handleCardClick}
       >
         <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 group">
-          <CardMedia />
           {/* Text section below the media */}
-          {(item.description) && (
+          {(item.showText && item.description) && (
             <CardContent className="p-4">
             
               {item.description && (
-                <p className="text-base font-medium text-slate-700 leading-relaxed">
+                <p className="text-base font-medium text-slate-700 leading-relaxed whitespace-pre-line">
+                  {item.description}
+                </p>
+              )}
+            </CardContent>
+          )}
+          <CardMedia />
+          {(item.description && !item.showText) && (
+            <CardContent className="p-4">
+            
+              {item.description && (
+                <p className="text-base font-medium text-slate-700 leading-relaxed whitespace-pre-line">
                   {item.description}
                 </p>
               )}
