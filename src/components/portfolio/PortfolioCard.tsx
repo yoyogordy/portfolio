@@ -111,8 +111,14 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
 
   const handleCardClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsOpen(true);
+    // Only open dialog if there's a video or if it's an image (for larger view)
+    if (item.videoSrc || item.imageSrc) {
+      setIsOpen(true);
+    }
   };
+
+  // Check if this is an image item (no video source)
+  const isImage = !item.videoSrc && item.imageSrc;
 
   // Determine if this is a YouTube video, Instagram post, Google Drive video, Dropbox video, or local video
   const isYouTube = !item.isLocal && item.videoSrc && (
@@ -136,7 +142,14 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
     <div className="aspect-w-16 aspect-h-9">
       <AspectRatio ratio={16/9} className="bg-slate-100">
         <div className="relative w-full h-full group cursor-pointer">
-          {item.thumbnailUrl ? (
+          {isImage ? (
+            // Image item
+            <img 
+              src={item.imageSrc}
+              alt={item.client || "Portfolio image"}
+              className="w-full h-full object-cover"
+            />
+          ) : item.thumbnailUrl ? (
             // Custom thumbnail provided
             <img 
               src={item.thumbnailUrl}
@@ -201,7 +214,8 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
               onPause={() => setIsPlaying(false)}
             />
           )}
-          {(!isPlaying || isYouTube || isInstagram || isGoogleDrive || isDropbox || item.thumbnailUrl) && (
+          {/* Show play button only for videos, not for images */}
+          {!isImage && (!isPlaying || isYouTube || isInstagram || isGoogleDrive || isDropbox || item.thumbnailUrl) && (
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
               <div className="bg-white/90 p-4 rounded-full">
                 <Play className="text-black h-8 w-8" />
@@ -221,18 +235,37 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
       >
         <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 group">
           <CardMedia />
+          {/* Text section below the media */}
+          {(item.description) && (
+            <CardContent className="p-4">
+            
+            
+              {item.description && (
+                <p className="text-base font-medium text-slate-700 leading-relaxed">
+                  {item.description}
+                </p>
+              )}
+            </CardContent>
+          )}
         </Card>
       </div>
       <DialogContent className="max-w-4xl w-[90vw]">
         <VisuallyHidden>
           <DialogTitle>{item.client}</DialogTitle>
           <DialogDescription>
-            {item.description || "Video"}
+            {item.description || (isImage ? "Image" : "Video")}
           </DialogDescription>
         </VisuallyHidden>
         <div className="aspect-w-16 aspect-h-9">
           <AspectRatio ratio={16/9}>
-            {isYouTube && youtubeVideoId ? (
+            {isImage ? (
+              // Image item in dialog
+              <img 
+                src={item.imageSrc}
+                alt={item.client || "Portfolio image"}
+                className="w-full h-full object-contain"
+              />
+            ) : isYouTube && youtubeVideoId ? (
               // YouTube embed
               <iframe 
                 width="100%" 

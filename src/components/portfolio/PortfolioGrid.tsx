@@ -7,7 +7,7 @@ interface PortfolioGridProps {
 
 const PortfolioGrid = ({ items }: PortfolioGridProps) => {
   return (
-    <div className="overflow-x-auto scrollbar-hide pb-4">
+    <div className="overflow-x-scroll pb-4">
       <div className="flex gap-4">
         {items.map((item) => (
           <div key={item.id} className="flex-none w-80">

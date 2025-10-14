@@ -125,6 +125,13 @@ export const portfolioItems = [
  videoSrc: "https://youtu.be/CMBvPJ8fsp0?si=-hUmOXB8gyIVWzMA",
  category: 'work' as const
 },
+{
+  id: generateRandomId(),
+  client: "אסם צ׳יפס (השקה)",
+  imageSrc: "/shetach.png",
+  description: "מהשטח",
+  category: 'work' as const
+},
 // max
 {
   id: generateRandomId(),
@@ -247,6 +254,7 @@ export const portfolioItems = [
   id: generateRandomId(),
   client: "",
   videoSrc: "https://www.instagram.com/reel/Cz5vcdgtO_5/?igsh=emVlOXJvczNpemFs",
+  thumbnailUrl: "/insta.png",
   category: 'music-creative' as const
  },
 ];
@@ -254,7 +262,8 @@ export const portfolioItems = [
 export type PortfolioItem = {
   id: number;
   client: string;
-  videoSrc: string;
+  videoSrc?: string; // Optional - for video items
+  imageSrc?: string; // Optional - for image items
   isLocal?: boolean;
   description?: string;
   category: 'work' | 'music-creative' | 'english';
