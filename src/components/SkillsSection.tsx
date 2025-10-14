@@ -35,7 +35,8 @@ export const copywritingSkills: Skill[] = [
       "Adobe Premiere Pro",
       "AI Design Tools (Midjourney, Krea, Runway)",
       "AI Music Generation (Suno, Kits)",
-      "Video Editing"
+      "Video Editing",
+      "Music Production (Ableton Live)"
     ]
   },
   {

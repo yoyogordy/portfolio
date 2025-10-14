@@ -12,7 +12,7 @@ const Hero = () => {
               עמית גורדון
             </h1>
             <h2 className="text-3xl font-heading font-medium text-muted-foreground mb-6">
-               קופירייטר ומוסיקאי
+               קופירייטר ומוזיקאי
             </h2>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="rounded-full">

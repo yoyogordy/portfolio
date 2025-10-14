@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				heading: ['Poppins', 'sans-serif'],
+				sans: ['Heebo', 'sans-serif'],
+				heading: ['Heebo', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

@@ -67,7 +67,7 @@ const Navbar = () => {
                 className="hover:text-primary transition-colors font-medium"
                 onClick={(e) => handleNavClick(e, 'category-music-creative')}
               >
-              מוסיקה וקריאייטיב
+              מוזיקה וקריאייטיב
               </a>
             </li>
             <li>
@@ -76,7 +76,7 @@ const Navbar = () => {
                 className="hover:text-primary transition-colors font-medium"
                 onClick={(e) => handleNavClick(e, 'category-english')}
               >
-             באנגלית
+             סקילס
               </a>
             </li>
             <li>
@@ -126,7 +126,7 @@ const Navbar = () => {
                 className="block py-3 hover:text-primary transition-colors font-medium text-center"
                 onClick={(e) => handleNavClick(e, 'category-music-creative')}
               >
-              מוסיקה וקריאייטיב
+              מוזיקה וקריאייטיב
               </a>
             </li>
             <li>
@@ -135,7 +135,7 @@ const Navbar = () => {
                 className="block py-3 hover:text-primary transition-colors font-medium text-center"
                 onClick={(e) => handleNavClick(e, 'category-english')}
               >
-              באנגלית
+              סקילס
               </a>
             </li>
             <li>
