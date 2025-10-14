@@ -56,28 +56,28 @@ export const portfolioItems = [
     id: generateRandomId(),
     client: "במבה",
     videoSrc: "https://www.dropbox.com/scl/fi/hs5wzgjco9y88m9k1bevr/2.mp4?rlkey=j4fru8uc6xtiygaop4qeads9j&st=j0wuvky7&dl=0",
-    thumbnailUrl: "/portfolio/bambathumbnail4.png",
+    thumbnailUrl: "/bambathumbnail4.png",
     category: 'work' as const
   },
   {
     id: generateRandomId(),
     client: "במבה",
     videoSrc: "https://www.dropbox.com/scl/fi/hcu9zjhz7wmaq5l5ih800/.mp4?rlkey=x2wapstuzfq2kymlbo0xoc7rs&st=n34c3ymb&dl=0",
-    thumbnailUrl: "/portfolio/bambathumbnail.png",
+    thumbnailUrl: "/bambathumbnail.png",
     category: 'work' as const
   },
   {
     id: generateRandomId(),
     client: "במבה",
     videoSrc: "https://www.dropbox.com/scl/fi/rmyr3xdu46vgnnibb856q/bamba_dubim_16x9_jumbo.mp4?rlkey=nl9285f9h7xom5kq279aaypsn&st=wi8dj2cy&dl=0",
-    thumbnailUrl: "/portfolio/bambathumbnail2.png",
+    thumbnailUrl: "/bambathumbnail2.png",
     category: 'work' as const
   },
   {
     id: generateRandomId(),
     client: "במבה",
     videoSrc: "https://www.dropbox.com/scl/fi/82u992wmockjel7si3pe0/Osem_Bamba_Hasut_Eurovision_307603_6Sec_1080p_002_HR.MP4?rlkey=rreaqvyrdsh0jyi7gampo8h52&st=fmnhglhr&dl=0",
-    thumbnailUrl: "/portfolio/bambathumbnail3.png",
+    thumbnailUrl: "/bambathumbnail3.png",
     category: 'work' as const
   },
 
@@ -150,14 +150,14 @@ export const portfolioItems = [
   id: generateRandomId(),
   client: "מקס (מהלך משלים)",
    videoSrc: "https://drive.google.com/file/d/1t7_LEDP6VDKeDZCDRwXqdrWiflCFDHcr/view",
-   thumbnailUrl: "/portfolio/maxthumbnail.png",
+   thumbnailUrl: "/maxthumbnail.png",
   category: 'work' as const
  },
  {
   id: generateRandomId(),
   client: "מקס (מהלך משלים)",
    videoSrc: "https://drive.google.com/file/d/1AoNfWgyROmFPv4b7A0hRUBXCdSKDY5Fx/view",
-   thumbnailUrl: "/portfolio/maxthumbnail2.png",
+   thumbnailUrl: "/maxthumbnail2.png",
   category: 'work' as const
 },
 // teperberg

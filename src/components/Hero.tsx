@@ -23,7 +23,7 @@ const Hero = () => {
           <div className="md:w-1/2 flex items-center justify-center">
             <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-secondary shadow-xl">
               <AvatarImage 
-                src="/portfolio/amit-gordon.jpg" 
+                src="/amit-gordon.jpg" 
                 alt="עמית גורדון"
                 loading="eager"
                 className="object-cover"
