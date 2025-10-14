@@ -14,6 +14,7 @@ interface PortfolioCardProps {
 const getYouTubeVideoId = (url: string): string | null => {
   const patterns = [
     /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+    /(?:youtube\.com\/shorts\/)([^&\n?#]+)/, // YouTube Shorts
     /^([a-zA-Z0-9_-]{11})$/ // Direct video ID
   ];
   
@@ -239,7 +240,6 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
           {(item.description) && (
             <CardContent className="p-4">
             
-            
               {item.description && (
                 <p className="text-base font-medium text-slate-700 leading-relaxed">
                   {item.description}
@@ -252,9 +252,6 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
       <DialogContent className="max-w-4xl w-[90vw]">
         <VisuallyHidden>
           <DialogTitle>{item.client}</DialogTitle>
-          <DialogDescription>
-            {item.description || (isImage ? "Image" : "Video")}
-          </DialogDescription>
         </VisuallyHidden>
         <div className="aspect-w-16 aspect-h-9">
           <AspectRatio ratio={16/9}>

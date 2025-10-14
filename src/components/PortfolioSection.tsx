@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getItemsByClientInCategory, categoryLabels, type PortfolioItem } from "@/data/portfolioItems";
 import PortfolioGrid from "./portfolio/PortfolioGrid";
 import SkillsSection from "./SkillsSection";
+import PortfolioCard from "./portfolio/PortfolioCard";
 
 const PortfolioSection = () => {
   const categories: PortfolioItem['category'][] = ['work', 'music-creative', 'english'];
@@ -63,6 +64,23 @@ const PortfolioSection = () => {
                   <div key={client} className="space-y-4">
                     <div className="container-custom">
                       <h3 className="text-2xl md:text-3xl font-heading font-bold">{client}</h3>
+                      {items.map((item) => {
+                        if (item.showText) {
+                          return (
+                            <div key={item.id} className="mt-4 mb-6 max-w-md ml-auto">
+                              <PortfolioCard 
+                                item={{
+                                  ...item,
+                                  videoSrc: "https://www.youtube.com/shorts/ce6hXWFzmC8",
+                                  thumbnailUrl: "https://i.ytimg.com/vi/ce6hXWFzmC8/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYfyBCKCowDw==&rs=AOn4CLA8n032xn8PIMDSwR2TAZu9jE6-sQ",
+                                  description: "ההשראה: פרסומות temu שהיו הדבר הכי ויראלי באותה תקופה."
+                                }} 
+                              />
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
                     </div>
                     <div className="container-custom">
                       <PortfolioGrid items={items} />

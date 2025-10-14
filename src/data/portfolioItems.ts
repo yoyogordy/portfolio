@@ -156,6 +156,7 @@ export const portfolioItems = [
  {
   id: generateRandomId(),
   client: "מקס (מהלך משלים)",
+  showText: true,
    videoSrc: "https://drive.google.com/file/d/1t7_LEDP6VDKeDZCDRwXqdrWiflCFDHcr/view",
    thumbnailUrl: "/maxthumbnail.png",
   category: 'work' as const
@@ -268,6 +269,7 @@ export type PortfolioItem = {
   description?: string;
   category: 'work' | 'music-creative' | 'english';
   thumbnailUrl?: string; // Optional custom thumbnail URL
+  showText?: boolean;
 };
 
 // Category labels in Hebrew
