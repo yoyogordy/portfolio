@@ -61,6 +61,49 @@ const getGoogleDriveFileId = (url: string): string | null => {
   return null;
 };
 
+// Helper to convert Dropbox URL to direct/raw link
+const getDropboxDirectLink = (url: string): string => {
+  // Handle shared folder links with preview parameter
+  if (url.includes('/scl/fo/') && url.includes('preview=')) {
+    const previewMatch = url.match(/preview=([^&]+)/);
+    const rlkeyMatch = url.match(/rlkey=([^&]+)/);
+    
+    if (previewMatch && rlkeyMatch) {
+      const fileName = decodeURIComponent(previewMatch[1]);
+      const rlkey = rlkeyMatch[1];
+      // Extract folder ID from the URL
+      const folderIdMatch = url.match(/\/scl\/fo\/([^/]+)\/([^?]+)/);
+      if (folderIdMatch) {
+        const folderId = folderIdMatch[1];
+        const pathId = folderIdMatch[2];
+        // Construct raw content link using Dropbox's content delivery
+        return `https://www.dropbox.com/scl/fo/${folderId}/${pathId}/${fileName}?rlkey=${rlkey}&raw=1`;
+      }
+    }
+  }
+  
+  // Handle regular Dropbox links
+  // For /s/ links (older format)
+  if (url.includes('dropbox.com/s/')) {
+    return url.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
+  }
+  
+  // Handle regular file links - convert dl=0 to raw=1 for direct access
+  if (url.includes('dl=0')) {
+    return url.replace('dl=0', 'raw=1');
+  }
+  // If already has raw=1, keep it
+  if (url.includes('raw=1')) {
+    return url;
+  }
+  // Convert dl=1 to raw=1 for embedding
+  if (url.includes('dl=1')) {
+    return url.replace('dl=1', 'raw=1');
+  }
+  // If no dl parameter, add raw=1
+  return url.includes('?') ? `${url}&raw=1` : `${url}?raw=1`;
+};
+
 const PortfolioCard = ({ item }: PortfolioCardProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -71,7 +114,7 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
     setIsOpen(true);
   };
 
-  // Determine if this is a YouTube video, Instagram post, Google Drive video, or local video
+  // Determine if this is a YouTube video, Instagram post, Google Drive video, Dropbox video, or local video
   const isYouTube = !item.isLocal && item.videoSrc && (
     item.videoSrc.includes('youtube.com') || 
     item.videoSrc.includes('youtu.be') ||
@@ -85,6 +128,9 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
   
   const isGoogleDrive = !item.isLocal && item.videoSrc && item.videoSrc.includes('drive.google.com');
   const googleDriveFileId = isGoogleDrive ? getGoogleDriveFileId(item.videoSrc || '') : null;
+
+  const isDropbox = !item.isLocal && item.videoSrc && item.videoSrc.includes('dropbox.com');
+  const dropboxDirectLink = isDropbox ? getDropboxDirectLink(item.videoSrc || '') : null;
 
   const CardMedia = () => (
     <div className="aspect-w-16 aspect-h-9">
@@ -109,6 +155,13 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
             <div className="w-full h-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
               <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+          ) : isDropbox ? (
+            // Dropbox placeholder (Dropbox doesn't provide direct thumbnail access)
+            <div className="w-full h-full bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 flex items-center justify-center">
+              <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 1.807L0 5.629l6 3.822 6.001-3.822L6 1.807zM18 1.807l-6 3.822 6 3.822 6-3.822-6-3.822zM0 13.274l6 3.822 6.001-3.822L6 9.452 0 13.274zM18 9.452l-6 3.822 6 3.822 6-3.822-6-3.822zM6 18.371l6.001 3.822 6-3.822-6-3.822L6 18.371z"/>
               </svg>
             </div>
           ) : isGoogleDrive && googleDriveFileId ? (
@@ -148,7 +201,7 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
               onPause={() => setIsPlaying(false)}
             />
           )}
-          {(!isPlaying || isYouTube || isInstagram || isGoogleDrive || item.thumbnailUrl) && (
+          {(!isPlaying || isYouTube || isInstagram || isGoogleDrive || isDropbox || item.thumbnailUrl) && (
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
               <div className="bg-white/90 p-4 rounded-full">
                 <Play className="text-black h-8 w-8" />
@@ -213,6 +266,17 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
                 allowFullScreen
                 className="border-0"
               />
+            ) : isDropbox && dropboxDirectLink ? (
+              // Dropbox video
+              <video 
+                className="w-full h-full"
+                src={dropboxDirectLink}
+                controls
+                autoPlay
+                playsInline
+              >
+                Your browser does not support the video tag.
+              </video>
             ) : (
               // Local video
               <video 
@@ -233,3 +297,4 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
 };
 
 export default PortfolioCard;
+

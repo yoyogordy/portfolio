@@ -14,9 +14,6 @@ const Hero = () => {
             <h2 className="text-3xl font-heading font-medium text-muted-foreground mb-6">
                קופירייטר ומוסיקאי
             </h2>
-            <p className="text-lg mb-8 max-w-lg">
-              אני עוד לא יודע תשאיר את זה פתוח
-            </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="rounded-full">
                 <a href="#contact">תיקשרו אליי</a>
