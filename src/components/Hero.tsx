@@ -4,7 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 const Hero = () => {
 
   return (
-    <section className="flex items-center py-8 md:py-16">
+    <section className="flex items-center pt-6 pb-6 md:pb-12 bg-[#E8DCC4]">
       <div className="container-custom">
         <div className="animate-fade-in flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <div className="md:w-1/2">

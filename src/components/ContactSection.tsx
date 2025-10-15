@@ -3,11 +3,11 @@ import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="bg-gradient-to-b from-background to-secondary/30 py-20 md:py-32">
+    <section id="contact" className="bg-[#E8DCC4] pt-12 md:pt-16 pb-12 md:pb-16">
       <div className="container-custom">
         <div className="animate-fade-in max-w-4xl mx-auto">
           {/* Contact Info */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
             <ContactItem 
               icon={<Mail className="h-7 w-7" />} 
               title="Email" 

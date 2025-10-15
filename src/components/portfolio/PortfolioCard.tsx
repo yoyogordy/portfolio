@@ -234,7 +234,7 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
         className="block cursor-pointer" 
         onClick={handleCardClick}
       >
-        <Card className="overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 ease-out border border-slate-200 group">
+        <Card className="overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 ease-out border border-[#D4C4A8] group">
           {/* Text section below the media */}
           {(item.showText && item.description) && (
             <CardContent className="p-4">

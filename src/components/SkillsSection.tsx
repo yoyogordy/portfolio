@@ -61,7 +61,7 @@ export const copywritingSkills: Skill[] = [
 
 const SkillsSection = () => {
   return (
-    <div className="container-custom py-8" dir="ltr">
+    <div className="container-custom py-4" dir="ltr">
       <div className="max-w-5xl mx-auto">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

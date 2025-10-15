@@ -6,7 +6,7 @@ import SkillsSection from "./SkillsSection";
 import PortfolioCard from "./portfolio/PortfolioCard";
 
 const PortfolioSection = () => {
-  const categories: PortfolioItem['category'][] = ['work', 'music-creative', 'english'];
+  const categories: PortfolioItem['category'][] = ['work', 'english'];
   const [activeCategory, setActiveCategory] = useState<PortfolioItem['category']>('work');
   
   const scrollToCategory = (category: PortfolioItem['category']) => {
@@ -23,18 +23,18 @@ const PortfolioSection = () => {
   };
   
   return (
-    <section id="portfolio" className="py-16 bg-slate-50/50">
+    <section id="portfolio" className="pb-8 md:pb-12 bg-[#F5EFE7]">
       <div className="w-full">
         {/* Category Navigation */}
-        <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-slate-200 mb-8">
+        <div className="sticky top-0 z-40 bg-[#E8DCC4]/95 backdrop-blur-sm border-b border-[#D4C4A8] mb-4">
           <div className="container-custom py-4">
             <nav className="flex gap-4 md:gap-8 justify-center flex-wrap">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => scrollToCategory(category)}
-                  className={`text-lg md:text-xl font-heading font-bold transition-all hover:text-primary ${
-                    activeCategory === category ? 'text-primary border-b-2 border-primary pb-1' : 'text-slate-600'
+                  className={`text-lg md:text-xl font-heading font-bold transition-all hover:text-[#6B4423] ${
+                    activeCategory === category ? 'text-[#6B4423]' : 'text-[#8B6F47]'
                   }`}
                 >
                   {categoryLabels[category]}
@@ -45,14 +45,14 @@ const PortfolioSection = () => {
         </div>
 
         {/* Category Sections */}
-        <div className="animate-fade-in space-y-16">
+        <div className="animate-fade-in space-y-8">
           {categories.map((category) => {
             const itemsByClient = getItemsByClientInCategory(category);
             
             return (
-              <div key={category} id={`category-${category}`} className="space-y-8">
+              <div key={category} id={`category-${category}`} className="space-y-6">
                 <div className="container-custom">
-                  <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-8">
+                  <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-6">
                     {categoryLabels[category]}
                   </h2>
                 </div>

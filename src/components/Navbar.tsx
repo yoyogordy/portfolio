@@ -34,7 +34,7 @@ const Navbar = () => {
   return (
     <header 
       className={`transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm shadow-sm py-3'
+        scrolled ? 'bg-[#E8DCC4] shadow-md py-2' : 'bg-[#E8DCC4]/95 backdrop-blur-sm shadow-sm py-3'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
@@ -96,7 +96,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`md:hidden bg-white absolute w-full transition-all duration-300 ease-in-out shadow-md ${
+        className={`md:hidden bg-[#E8DCC4] absolute w-full transition-all duration-300 ease-in-out shadow-md ${
           mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
