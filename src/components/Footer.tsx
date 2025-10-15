@@ -18,7 +18,7 @@ const Footer = () => {
      
             <Separator orientation="vertical" className="hidden md:block h-6 mx-2" />
             <div className="text-sm text-muted-foreground">
-              © {currentYear} עמית גורדון.
+              © {currentYear} עמית גורדון
             </div>
           </div>
         </div>

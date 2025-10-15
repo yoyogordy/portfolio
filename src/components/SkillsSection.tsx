@@ -54,7 +54,7 @@ export const copywritingSkills: Skill[] = [
     title: "Languages",
     items: [
       "Hebrew (Native)",
-      "English (Fluent)"
+      "English (Native)"
     ]
   }
 ];

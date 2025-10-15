@@ -5,6 +5,63 @@ const generateRandomId = () => {
 }
 
 export const portfolioItems = [
+  // oshem chips
+{
+  id: generateRandomId(),
+  client: "אסם צ׳יפס (השקה)",
+  videoSrc: "https://youtu.be/_jm3A3wJi6M?si=mldWpZQkOyjvS0-d",
+  category: 'work' as const
+ },
+ {
+  id: generateRandomId(),
+  client: "אסם צ׳יפס (השקה)",
+  videoSrc: "https://youtu.be/Kr7ULh_KlHc?si=bGxaOx9__j1G_A6k",
+  category: 'work' as const
+ },
+ {
+  id: generateRandomId(),
+  client: "אסם צ׳יפס (השקה)",
+  videoSrc: "https://youtu.be/92ebtuB_-sI?si=mrlIS-O_ok31EFAs",
+  category: 'work' as const
+ },
+ {
+  id: generateRandomId(),
+  client: "אסם צ׳יפס (השקה)",
+  videoSrc: "https://youtu.be/pexrj8UMq7w?si=04HwuKVnSrNYPeS5",
+  category: 'work' as const
+ },
+ {
+  id: generateRandomId(),
+  client: "אסם צ׳יפס (השקה)",
+  videoSrc: "https://youtu.be/CMBvPJ8fsp0?si=-hUmOXB8gyIVWzMA",
+  category: 'work' as const
+ },
+ {
+   id: generateRandomId(),
+   client: "אסם צ׳יפס (השקה)",
+   imageSrc: "/shetach.png",
+   modalTitle: "אמא צילמה מהשטח",
+   category: 'work' as const
+ },
+ // teperberg
+{
+  id: generateRandomId(),
+  client: "יקב טפרברג",
+  videoSrc: "https://youtu.be/Sw3CPfdwbZg?si=YyMjub4A79RVzBUb",
+  category: 'work' as const
+ },
+ {
+  id: generateRandomId(),
+  client: "יקב טפרברג",
+  videoSrc: "https://youtu.be/toG3MNfQzUk?si=QsNp4GaJ67v0mDfN",
+  category: 'work' as const
+ },
+ {
+  id: generateRandomId(),
+  client: "יקב טפרברג",
+  videoSrc: "https://youtu.be/8JpprOJ8-io?si=C9Ys1bN50zIcIcWC",
+  category: 'work' as const
+ },
   // Wolt
   {
     id: generateRandomId(),
@@ -45,93 +102,7 @@ export const portfolioItems = [
   },
  
   
-  // Bamba
-  {
-    id: generateRandomId(),
-    client: "במבה",
-    videoSrc: "https://www.youtube.com/watch?v=sh2nX7YrrE0",
-    category: 'work' as const
-  },
-  {
-    id: generateRandomId(),
-    client: "במבה",
-    videoSrc: "https://www.dropbox.com/scl/fi/hs5wzgjco9y88m9k1bevr/2.mp4?rlkey=j4fru8uc6xtiygaop4qeads9j&st=j0wuvky7&dl=0",
-    thumbnailUrl: "/bambathumbnail4.png",
-    category: 'work' as const
-  },
-  {
-    id: generateRandomId(),
-    client: "במבה",
-    videoSrc: "https://www.dropbox.com/scl/fi/hcu9zjhz7wmaq5l5ih800/.mp4?rlkey=x2wapstuzfq2kymlbo0xoc7rs&st=n34c3ymb&dl=0",
-    thumbnailUrl: "/bambathumbnail.png",
-    category: 'work' as const
-  },
-  {
-    id: generateRandomId(),
-    client: "במבה",
-    videoSrc: "https://www.dropbox.com/scl/fi/rmyr3xdu46vgnnibb856q/bamba_dubim_16x9_jumbo.mp4?rlkey=nl9285f9h7xom5kq279aaypsn&st=wi8dj2cy&dl=0",
-    thumbnailUrl: "/bambathumbnail2.png",
-    category: 'work' as const
-  },
-  {
-    id: generateRandomId(),
-    client: "במבה",
-    videoSrc: "https://www.dropbox.com/scl/fi/82u992wmockjel7si3pe0/Osem_Bamba_Hasut_Eurovision_307603_6Sec_1080p_002_HR.MP4?rlkey=rreaqvyrdsh0jyi7gampo8h52&st=fmnhglhr&dl=0",
-    thumbnailUrl: "/bambathumbnail3.png",
-    category: 'work' as const
-  },
 
-  // Tidhar
-  {
-    id: generateRandomId(),
-    client: "תדהר",
-    videoSrc: "https://youtu.be/pi2wpWCznps?si=0v8T9C_-MG4WWkhS",
-    category: 'work' as const
-  },
-  {
-    id: generateRandomId(),
-    client: "תדהר",
-    videoSrc: "https://www.youtube.com/watch?v=Vo85FDsAHiw",
-    category: 'work' as const
-  },
-// oshem chips
-{
- id: generateRandomId(),
- client: "אסם צ׳יפס (השקה)",
- videoSrc: "https://youtu.be/_jm3A3wJi6M?si=mldWpZQkOyjvS0-d",
- category: 'work' as const
-},
-{
- id: generateRandomId(),
- client: "אסם צ׳יפס (השקה)",
- videoSrc: "https://youtu.be/Kr7ULh_KlHc?si=bGxaOx9__j1G_A6k",
- category: 'work' as const
-},
-{
- id: generateRandomId(),
- client: "אסם צ׳יפס (השקה)",
- videoSrc: "https://youtu.be/92ebtuB_-sI?si=mrlIS-O_ok31EFAs",
- category: 'work' as const
-},
-{
- id: generateRandomId(),
- client: "אסם צ׳יפס (השקה)",
- videoSrc: "https://youtu.be/pexrj8UMq7w?si=04HwuKVnSrNYPeS5",
- category: 'work' as const
-},
-{
- id: generateRandomId(),
- client: "אסם צ׳יפס (השקה)",
- videoSrc: "https://youtu.be/CMBvPJ8fsp0?si=-hUmOXB8gyIVWzMA",
- category: 'work' as const
-},
-{
-  id: generateRandomId(),
-  client: "אסם צ׳יפס (השקה)",
-  imageSrc: "/shetach.png",
-  description: "מהשטח",
-  category: 'work' as const
-},
 // max
 {
   id: generateRandomId(),
@@ -168,25 +139,56 @@ export const portfolioItems = [
    thumbnailUrl: "/maxthumbnail2.png",
   category: 'work' as const
 },
-// teperberg
-{
-  id: generateRandomId(),
-  client: "יקב טפרברג",
-  videoSrc: "https://youtu.be/Sw3CPfdwbZg?si=YyMjub4A79RVzBUb",
-  category: 'work' as const
- },
- {
-  id: generateRandomId(),
-  client: "יקב טפרברג",
-  videoSrc: "https://youtu.be/toG3MNfQzUk?si=QsNp4GaJ67v0mDfN",
-  category: 'work' as const
- },
- {
-  id: generateRandomId(),
-  client: "יקב טפרברג",
-  videoSrc: "https://youtu.be/8JpprOJ8-io?si=C9Ys1bN50zIcIcWC",
-  category: 'work' as const
- },
+  // Tidhar
+  {
+    id: generateRandomId(),
+    client: "תדהר",
+    videoSrc: "https://youtu.be/pi2wpWCznps?si=0v8T9C_-MG4WWkhS",
+    category: 'work' as const
+  },
+  {
+    id: generateRandomId(),
+    client: "תדהר",
+    videoSrc: "https://www.youtube.com/watch?v=Vo85FDsAHiw",
+    category: 'work' as const
+  },
+  // Bamba
+  {
+    id: generateRandomId(),
+    client: "במבה",
+    videoSrc: "https://www.youtube.com/watch?v=sh2nX7YrrE0",
+    category: 'work' as const
+  },
+  {
+    id: generateRandomId(),
+    client: "במבה",
+    videoSrc: "https://www.dropbox.com/scl/fi/hs5wzgjco9y88m9k1bevr/2.mp4?rlkey=j4fru8uc6xtiygaop4qeads9j&st=j0wuvky7&dl=0",
+    thumbnailUrl: "/bambathumbnail4.png",
+    category: 'work' as const
+  },
+  {
+    id: generateRandomId(),
+    client: "במבה",
+    videoSrc: "https://www.dropbox.com/scl/fi/hcu9zjhz7wmaq5l5ih800/.mp4?rlkey=x2wapstuzfq2kymlbo0xoc7rs&st=n34c3ymb&dl=0",
+    thumbnailUrl: "/bambathumbnail.png",
+    category: 'work' as const
+  },
+  {
+    id: generateRandomId(),
+    client: "במבה",
+    videoSrc: "https://www.dropbox.com/scl/fi/rmyr3xdu46vgnnibb856q/bamba_dubim_16x9_jumbo.mp4?rlkey=nl9285f9h7xom5kq279aaypsn&st=wi8dj2cy&dl=0",
+    thumbnailUrl: "/bambathumbnail2.png",
+    category: 'work' as const
+  },
+  {
+    id: generateRandomId(),
+    client: "במבה",
+    videoSrc: "https://www.dropbox.com/scl/fi/82u992wmockjel7si3pe0/Osem_Bamba_Hasut_Eurovision_307603_6Sec_1080p_002_HR.MP4?rlkey=rreaqvyrdsh0jyi7gampo8h52&st=fmnhglhr&dl=0",
+    thumbnailUrl: "/bambathumbnail3.png",
+    category: 'work' as const
+  },
+
+
  // napoleon
  {
   id: generateRandomId(),
@@ -241,22 +243,22 @@ export const portfolioItems = [
  // music
  {
   id: generateRandomId(),
-  client: "",
+  client: "מוזיקה וקריאייטיב",
   videoSrc: "https://youtu.be/XdKrQGYy0ug?si=5CDVLGDjaTnhORbA",
-  category: 'music-creative' as const
+  category: 'work' as const
  },
  {
   id: generateRandomId(),
-  client: "",
+  client: "מוזיקה וקריאייטיב",
   videoSrc: "https://youtu.be/QdZXcGAkMQw?si=vt2FS7tk-nXfbxF1",
-  category: 'music-creative' as const
+  category: 'work' as const
  },
  {
   id: generateRandomId(),
-  client: "",
+  client: "מוזיקה וקריאייטיב",
   videoSrc: "https://www.instagram.com/reel/Cz5vcdgtO_5/?igsh=emVlOXJvczNpemFs",
   thumbnailUrl: "/insta.png",
-  category: 'music-creative' as const
+  category: 'work' as const
  },
 ];
 
@@ -267,15 +269,15 @@ export type PortfolioItem = {
   imageSrc?: string; // Optional - for image items
   isLocal?: boolean;
   description?: string;
-  category: 'work' | 'music-creative' | 'english';
+  category: 'work' | 'english';
   thumbnailUrl?: string; // Optional custom thumbnail URL
   showText?: boolean;
+  modalTitle?: string; // Optional title to display in modal
 };
 
 // Category labels in Hebrew
 export const categoryLabels: Record<PortfolioItem['category'], string> = {
   'work': 'עבודות',
-  'music-creative': 'מוזיקה וקריאייטיב',
   'english': 'באנגלית כי אני אינגליש ספיקר'
 };
 

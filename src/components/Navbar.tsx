@@ -46,7 +46,7 @@ const Navbar = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          עמית גורדון<span className="text-primary">.</span>
+          עמית גורדון
         </a>
 
         {/* Desktop Navigation */}
@@ -59,15 +59,6 @@ const Navbar = () => {
                 onClick={(e) => handleNavClick(e, 'category-work')}
               >
                 עבודות
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#category-music-creative" 
-                className="hover:text-primary transition-colors font-medium"
-                onClick={(e) => handleNavClick(e, 'category-music-creative')}
-              >
-              מוזיקה וקריאייטיב
               </a>
             </li>
             <li>
@@ -118,15 +109,6 @@ const Navbar = () => {
                 onClick={(e) => handleNavClick(e, 'category-work')}
               >
               עבודות
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#category-music-creative" 
-                className="block py-3 hover:text-primary transition-colors font-medium text-center"
-                onClick={(e) => handleNavClick(e, 'category-music-creative')}
-              >
-              מוזיקה וקריאייטיב
               </a>
             </li>
             <li>
