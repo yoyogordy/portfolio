@@ -14,11 +14,6 @@ const Hero = () => {
             <h2 className="text-3xl font-heading font-medium text-muted-foreground mb-6">
                קופירייטר ומוזיקאי
             </h2>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="rounded-full">
-                <a href="#contact">תיקשרו אליי</a>
-              </Button>
-            </div>
           </div>
           <div className="md:w-1/2 flex items-center justify-center">
             <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-secondary shadow-xl">

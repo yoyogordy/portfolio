@@ -73,7 +73,7 @@ const PortfolioSection = () => {
                                   ...item,
                                   videoSrc: "https://www.youtube.com/shorts/ce6hXWFzmC8",
                                   thumbnailUrl: "https://i.ytimg.com/vi/ce6hXWFzmC8/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYfyBCKCowDw==&rs=AOn4CLA8n032xn8PIMDSwR2TAZu9jE6-sQ",
-                                  description: "ההשראה: פרסומות temu שהיו\n הדבר הכי ויראלי באותה תקופה."
+                                  description: "ההשראה: פרסומות Temu שהיו\n הדבר הכי ויראלי באותה תקופה."
                                 }} 
                               />
                             </div>

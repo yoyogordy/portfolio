@@ -8,7 +8,7 @@ interface Skill {
 
 export const copywritingSkills: Skill[] = [
   {
-    title: "Creative traits",
+    title: "Creative Traits",
     items: [
       "Creative Strategy",
       "Digital Copywriting",
