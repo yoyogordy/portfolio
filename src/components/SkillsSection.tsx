@@ -8,14 +8,15 @@ interface Skill {
 
 export const copywritingSkills: Skill[] = [
   {
-    title: "Core Creative Skills",
+    title: "Creative traits",
     items: [
       "Creative Strategy",
       "Digital Copywriting",
       "Comedic Writing",
       "Strategic Storytelling",
       "Brand Voice Development",
-      "Concept Creation"
+      "Concept Creation",
+      "UX Writing"
     ]
   },
   {
@@ -31,7 +32,6 @@ export const copywritingSkills: Skill[] = [
   {
     title: "Design & Multimedia Tools",
     items: [
-      "Adobe Creative Suite",
       "Adobe Premiere Pro",
       "AI Design Tools (Midjourney, Krea, Runway)",
       "AI Music Generation (Suno, Kits)",
@@ -40,7 +40,7 @@ export const copywritingSkills: Skill[] = [
     ]
   },
   {
-    title: "Leadership & Professional Skills",
+    title: "Professional Skills",
     items: [
       "Team Leadership",
       "Problem Solving",

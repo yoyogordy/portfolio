@@ -76,7 +76,7 @@ const Navbar = () => {
                 className="hover:text-primary transition-colors font-medium"
                 onClick={(e) => handleNavClick(e, 'contact')}
               >
-              צור קשר
+              תיקשרו אליי
               </a>
             </li>
           </ul>
@@ -126,7 +126,7 @@ const Navbar = () => {
                 className="block py-3 hover:text-primary transition-colors font-medium text-center"
                 onClick={(e) => handleNavClick(e, 'contact')}
               >
-              צור קשר
+              תיקשרו אליי
               </a>
             </li>
           </ul>

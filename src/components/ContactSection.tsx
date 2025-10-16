@@ -24,7 +24,7 @@ const ContactSection = () => {
 
           {/* Social Links */}
           <div className="text-center">
-            <h3 className="text-xl font-medium mb-6 text-muted-foreground">Connect with me</h3>
+            <h3 className="text-xl font-medium mb-6 text-muted-foreground">Hit me up</h3>
             <div className="flex justify-center gap-4">
               <SocialLink 
                 href="https://www.linkedin.com/in/amit-gordon1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
