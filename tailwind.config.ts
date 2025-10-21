@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Noto Sans', 'sans-serif'],
-				heading: ['Noto Sans', 'sans-serif'],
+				sans: ['Varela Round', 'sans-serif'],
+				heading: ['Varela Round', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

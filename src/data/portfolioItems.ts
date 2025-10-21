@@ -6,6 +6,12 @@ const generateRandomId = () => {
 
 export const portfolioItems = [
   // oshem chips
+  {
+    id: generateRandomId(),
+    client: "אסם צ׳יפס (השקה)",
+    videoSrc: "https://youtu.be/92ebtuB_-sI?si=mrlIS-O_ok31EFAs",
+    category: 'work' as const
+   },
 {
   id: generateRandomId(),
   client: "אסם צ׳יפס (השקה)",
@@ -18,12 +24,7 @@ export const portfolioItems = [
   videoSrc: "https://youtu.be/Kr7ULh_KlHc?si=bGxaOx9__j1G_A6k",
   category: 'work' as const
  },
- {
-  id: generateRandomId(),
-  client: "אסם צ׳יפס (השקה)",
-  videoSrc: "https://youtu.be/92ebtuB_-sI?si=mrlIS-O_ok31EFAs",
-  category: 'work' as const
- },
+
  {
   id: generateRandomId(),
   client: "אסם צ׳יפס (השקה)",
