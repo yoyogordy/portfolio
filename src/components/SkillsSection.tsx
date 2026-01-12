@@ -13,6 +13,7 @@ export const copywritingSkills: Skill[] = [
       "Creative Strategy",
       "Digital Copywriting",
       "Comedic Writing",
+      "Mccann's creative man of the year 2025",
       "Strategic Storytelling",
       "Brand Voice Development",
       "Concept Creation",
