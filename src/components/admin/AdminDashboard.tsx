@@ -19,7 +19,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { logout } from '@/lib/adminAuth';
+import { logout, savePendingDeploy, getPendingDeploy, clearPendingDeploy } from '@/lib/adminAuth';
 import { fetchPortfolioData, commitPortfolioData } from '@/lib/github';
 import type { ClientGroup, PortfolioData } from '@/data/portfolioItems';
 import ItemForm, { type ItemData } from './ItemForm';
@@ -176,7 +176,10 @@ export default function AdminDashboard({ onLogout }: { onLogout: () => void }) {
   const [sha, setSha] = useState('');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [deployCommit, setDeployCommit] = useState<string | null>(null);
+  const [deployCommit, setDeployCommit] = useState<string | null>(() => {
+    const pending = getPendingDeploy();
+    return pending?.commitSha ?? null;
+  });
   const [expandedGroups, setExpandedGroups] = useState<Set<number>>(new Set());
   const [editingItem, setEditingItem] = useState<{ groupIndex: number; itemIndex: number } | null>(null);
   const [addingToGroup, setAddingToGroup] = useState<number | null>(null);
@@ -219,6 +222,7 @@ export default function AdminDashboard({ onLogout }: { onLogout: () => void }) {
     setSaving(true);
     try {
       const result = await commitPortfolioData(data, sha);
+      savePendingDeploy(result.commitSha);
       setDeployCommit(result.commitSha);
       setHasChanges(false);
       // Re-fetch to get new SHA
@@ -303,7 +307,7 @@ export default function AdminDashboard({ onLogout }: { onLogout: () => void }) {
         <div className="max-w-3xl mx-auto px-4 pt-4">
           <DeployProgress
             commitSha={deployCommit}
-            onDone={() => setDeployCommit(null)}
+            onDone={() => { clearPendingDeploy(); setDeployCommit(null); }}
           />
         </div>
       )}
