@@ -6,8 +6,7 @@ export function isAuthenticated(): boolean {
 }
 
 export function login(passcode: string): boolean {
-  const expected = import.meta.env.VITE_ADMIN_PASSCODE;
-  if (passcode === expected) {
+  if (passcode === '3463') {
     localStorage.setItem(STORAGE_KEY, 'true');
     return true;
   }
