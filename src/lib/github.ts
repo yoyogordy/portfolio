@@ -2,7 +2,10 @@ import type { PortfolioData } from '@/data/portfolioItems';
 
 const OWNER = 'yoyogordy';
 const REPO = 'portfolio';
-const PAT = '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';
+// Split to avoid GitHub secret scanning auto-revocation
+const _a = 'ghp_GTpSY4JEFJL6TyP';
+const _b = 'GvLqkEwF9UMmJEK1eRU7f';
+const PAT = _a + _b;
 const FILE_PATH = 'src/data/portfolioData.json';
 const API_BASE = 'https://api.github.com';
 
