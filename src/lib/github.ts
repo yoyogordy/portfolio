@@ -1,8 +1,8 @@
 import type { PortfolioData } from '@/data/portfolioItems';
 
-const OWNER = import.meta.env.VITE_GITHUB_OWNER || 'yoyogordy';
-const REPO = import.meta.env.VITE_GITHUB_REPO || 'portfolio';
-const PAT = import.meta.env.VITE_GITHUB_PAT || '';
+const OWNER = 'yoyogordy';
+const REPO = 'portfolio';
+const PAT = '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';
 const FILE_PATH = 'src/data/portfolioData.json';
 const API_BASE = 'https://api.github.com';
 
