@@ -29,12 +29,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create .env
+        run: |
+          echo "VITE_GITHUB_PAT=${{ vars.VITE_GITHUB_PAT }}" >> .env
+          echo "VITE_GITHUB_OWNER=${{ vars.VITE_GITHUB_OWNER }}" >> .env
+          echo "VITE_GITHUB_REPO=${{ vars.VITE_GITHUB_REPO }}" >> .env
+
       - name: Build
         run: npm run build
-        env:
-          VITE_GITHUB_PAT: ${{ vars.VITE_GITHUB_PAT }}
-          VITE_GITHUB_OWNER: ${{ vars.VITE_GITHUB_OWNER }}
-          VITE_GITHUB_REPO: ${{ vars.VITE_GITHUB_REPO }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
