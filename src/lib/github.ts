@@ -20,7 +20,8 @@ export async function fetchPortfolioData(): Promise<{ data: PortfolioData; sha: 
   if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
 
   const json = await res.json();
-  const content = atob(json.content);
+  const bytes = Uint8Array.from(atob(json.content), (c) => c.charCodeAt(0));
+  const content = new TextDecoder().decode(bytes);
   const data = JSON.parse(content) as PortfolioData;
   return { data, sha: json.sha };
 }
