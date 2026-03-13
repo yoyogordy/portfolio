@@ -5,6 +5,31 @@ const generateRandomId = () => {
 }
 
 export const portfolioItems = [
+   // bisli chips
+   {
+    id: generateRandomId(),
+    client: "ביסלי",
+    videoSrc: "https://www.youtube.com/watch?v=ztnNVcej24g",
+    category: 'work' as const
+   },
+   {
+    id: generateRandomId(),
+    client: "ביסלי",
+    videoSrc: "https://www.youtube.com/watch?v=SU5rxi_u5Is",
+    category: 'work' as const
+   },
+   {
+    id: generateRandomId(),
+    client: "ביסלי",
+    videoSrc: "https://www.youtube.com/watch?v=_Ig9T-GYqW4",
+    category: 'work' as const
+   },
+   {
+    id: generateRandomId(),
+    client: "ביסלי",
+    videoSrc: "https://www.youtube.com/watch?v=V1iYmtcQ-Uk",
+    category: 'work' as const
+   },
   // oshem chips
   {
     id: generateRandomId(),
@@ -154,6 +179,12 @@ export const portfolioItems = [
     category: 'work' as const
   },
   // Bamba
+  {
+    id: generateRandomId(),
+    client: "במבה",
+    videoSrc: "https://www.youtube.com/watch?v=rWGNyf2dHv4",
+    category: 'work' as const
+  },
   {
     id: generateRandomId(),
     client: "במבה",
