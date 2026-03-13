@@ -35,7 +35,7 @@ jobs:
           VITE_GITHUB_PAT: ${{ secrets.VITE_GITHUB_PAT }}
           VITE_GITHUB_OWNER: ${{ vars.VITE_GITHUB_OWNER }}
           VITE_GITHUB_REPO: ${{ vars.VITE_GITHUB_REPO }}
-          VITE_ADMIN_PASSCODE: ${{ secrets.VITE_ADMIN_PASSCODE }}
+          VITE_ADMIN_PASSCODE: ${{ vars.VITE_ADMIN_PASSCODE }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
