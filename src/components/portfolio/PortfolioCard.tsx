@@ -105,6 +105,10 @@ const getDropboxDirectLink = (url: string): string => {
   return url.includes('?') ? `${url}&raw=1` : `${url}?raw=1`;
 };
 
+// Helper to build a Facebook video/reel embed URL
+const getFacebookEmbedUrl = (url: string): string =>
+  `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&autoplay=1`;
+
 const PortfolioCard = ({ item }: PortfolioCardProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -139,6 +143,9 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
   const isDropbox = !item.isLocal && item.videoSrc && item.videoSrc.includes('dropbox.com');
   const dropboxDirectLink = isDropbox ? getDropboxDirectLink(item.videoSrc || '') : null;
 
+  const isFacebook = !item.isLocal && item.videoSrc && (item.videoSrc.includes('facebook.com') || item.videoSrc.includes('fb.watch'));
+  const facebookEmbedUrl = isFacebook ? getFacebookEmbedUrl(item.videoSrc || '') : null;
+
   const CardMedia = () => (
     <div className="aspect-w-16 aspect-h-9">
       <AspectRatio ratio={16/9} className="bg-slate-100 overflow-hidden">
@@ -169,6 +176,13 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
             <div className="w-full h-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110">
               <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+          ) : isFacebook ? (
+            // Facebook placeholder (Facebook doesn't provide direct thumbnail access)
+            <div className="w-full h-full bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110">
+              <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.93-1.956 1.886v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
               </svg>
             </div>
           ) : isDropbox ? (
@@ -216,7 +230,7 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
             />
           )}
           {/* Show play button only for videos, not for images */}
-          {!isImage && (!isPlaying || isYouTube || isInstagram || isGoogleDrive || isDropbox || item.thumbnailUrl) && (
+          {!isImage && (!isPlaying || isYouTube || isInstagram || isGoogleDrive || isDropbox || isFacebook || item.thumbnailUrl) && (
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
               <div className="bg-white/95 p-4 rounded-full transform group-hover:scale-110 transition-all duration-500 shadow-xl">
                 <Play className="text-black h-8 w-8 fill-black" />
@@ -308,6 +322,17 @@ const PortfolioCard = ({ item }: PortfolioCardProps) => {
                 src={`https://drive.google.com/file/d/${googleDriveFileId}/preview`}
                 title={`${item.client} video`}
                 allow="autoplay"
+                allowFullScreen
+                className="border-0"
+              />
+            ) : isFacebook && facebookEmbedUrl ? (
+              // Facebook video/reel embed
+              <iframe
+                width="100%"
+                height="100%"
+                src={facebookEmbedUrl}
+                title={`${item.client} video`}
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 allowFullScreen
                 className="border-0"
               />
